@@ -2,24 +2,24 @@
 <html>
 
 <head>
-  <title>GuessTheNumber </title>
+  <title>GuessTheNumber</title>
 </head>
+
 <body>
-  <div>
 
+<h1>Guess a number from 0 to 100</h1>  
 
+  <div style="margin: 0 0 0 50px">
+          
 
    <?php
 
-   
-   $message="";
-   $message2="";
+      $message="";
+      $message2="";
       $numTries=0;   //счетчик попыток
       $guess="";
       $numToGuess="";
-      
-
-
+   
 
          if ( !isset($_POST['guess']) ) {          // иссет - проверка что там нету никакой информациим в поле
 
@@ -29,9 +29,9 @@
 
 
          }elseif ($_POST['guess']>$_POST['numToGuess']) {
-           $message=$_POST['guess'] ." это много!";
+           $message=$_POST['guess'] ."  It's a lot!";
          }elseif ($_POST['guess']<$_POST['numToGuess']) {
-           $message=$_POST['guess'] ." это мало!";
+           $message=$_POST['guess'] ."  It is not enough!";
          }else {
 
           header("location:congrats.html");
@@ -47,37 +47,19 @@
 
        }
 
-
-
        echo "guessed number: ".$numToGuess."<br><br>";      
        echo $message;
 
-   /* if ( ! empty( $_POST['guess'] ) ) {
+     /* if ( ! empty( $_POST['guess'] ) ) {
        print "Last answer: " . $_POST['guess'];
      }*/
 
      ?>
-     
+   
 
+     <p> Attempts done:  <?php echo $numTries++; ?></p>
 
-
-
-
-     <p>Attempts done:  <?php echo $numTries++; ?></p>
-
-     <p>Your tried: 
-      <?php 
-
-      $message2.=$guess."&nbsp";
-
-      echo $message2;
-
-      ?>  
-    </p>
-
-
-
-
+     <p> Your tried:  <?php  $message2.=$guess."&nbsp&nbsp";  echo $message2; ?></p>
 
     <form method="post" action="<?php print $_SERVER['PHP_SELF']?>">
 
@@ -90,7 +72,9 @@
 
         <input type="submit" value="Answer" />
       </p>
+
     </form>
+
   </div>
 
 
